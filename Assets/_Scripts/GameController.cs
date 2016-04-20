@@ -83,14 +83,11 @@ public class GameController : MonoBehaviour {
             if (this._guacsValue >= 5)
             {
                 this.GuacsLabel.text = "Guacs: " + this._guacsValue + "/5";
-                this.YourScoreLabel.text = "Your Score: " + this._scoreValue;
-                this.FinishedLevelLabel.enabled = true;
-                this.YourScoreLabel.enabled = true;
                 this.aguacate.gameObject.SetActive(false);
                 this.onion.gameObject.SetActive(false);
                 this.tomato.gameObject.SetActive(false);
                 this.ScoreLabel.enabled = false;
-                this.RestartButton.gameObject.SetActive(true);
+
             }
             else
             {
@@ -107,15 +104,12 @@ public class GameController : MonoBehaviour {
     public EvilFlameController evilFlame;
     public Text LivesLabel;
     public Text ScoreLabel;
-    public Text GameOverLabel;
     public Text GuacsLabel;
-    public Text FinishedLevelLabel;
     public AguacateController aguacate;
     public TomatoController tomato;
     public OnionControler onion;
-    public Text YourScoreLabel;
     public AudioSource gameOverSound;
-    public Button RestartButton;
+    
 
 
     // Use this for initialization
@@ -166,30 +160,15 @@ public class GameController : MonoBehaviour {
         this.GuacsValue = 0;
         //keep the player's number of lives
         this.LivesValue = 5;
-        //holds the game over label
-        this.GameOverLabel.enabled = false;
-        //holds the finished level label
-        this.FinishedLevelLabel.enabled = false;
-        //holds the final score
-        this.YourScoreLabel.enabled = false;
-        //button to restart the game 
-        this.RestartButton.gameObject.SetActive(false);
+        
     }
 
     private void _endGame()
     {
-        this.YourScoreLabel.text = "Your Score: " + this._scoreValue;
-        this.GameOverLabel.enabled = true;
-        this.YourScoreLabel.enabled = true;
-        this.aguacate.gameObject.SetActive(false);
-        this.onion.gameObject.SetActive(false);
-        this.tomato.gameObject.SetActive(false);
-        this.LivesLabel.enabled = false;
-        this.ScoreLabel.enabled = false;
-        this.GuacsLabel.enabled = false;
+        
         this.gameOverSound.Play();
-        this.RestartButton.gameObject.SetActive(true);
-       
+        SceneManager.LoadScene("End");
+
     }
 
     //PUBLIC METHODS

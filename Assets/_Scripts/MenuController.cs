@@ -22,7 +22,7 @@ public class MenuController : MonoBehaviour {
 
     public void InstructionsButtonClick()
     {
-        
+        SceneManager.LoadScene("Instructions");
     }
 
     public void QuitButtonClick()
